@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Launch-counter-timer/static/css/main.187d90fb.css",
+    "main.js": "/Launch-counter-timer/static/js/main.00b4883f.js",
+    "static/media/bg-stars.svg": "/Launch-counter-timer/static/media/bg-stars.166881a1c03d6b1239f5.svg",
+    "index.html": "/Launch-counter-timer/index.html",
+    "static/media/pattern-hills.svg": "/Launch-counter-timer/static/media/pattern-hills.815d688fd937623063b5.svg",
+    "main.187d90fb.css.map": "/Launch-counter-timer/static/css/main.187d90fb.css.map",
+    "main.00b4883f.js.map": "/Launch-counter-timer/static/js/main.00b4883f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.187d90fb.css",
+    "static/js/main.00b4883f.js"
+  ]
+}
