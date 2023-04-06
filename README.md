@@ -1,46 +1,95 @@
-# Getting Started with Create React App
+# Frontend Mentor - Launch countdown timer solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [Launch countdown timer challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/launch-countdown-timer-N0XkGfyz-). Frontend Mentor challenges help you improve your coding skills by building realistic projects. 
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+### The challenge
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Users should be able to:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- See hover states for all interactive elements on the page
+- See a live countdown timer that ticks down every second (start the count at 14 days) -users can reset the timer after it goes down to 0
+- **Bonus**: When a number changes, make the card flip from the middle -done
 
-### `npm test`
+### Screenshot
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://prnt.sc/In7rCpIedpQl
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Links
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- https://bap-ssbm.github.io/Launch-counter-timer/
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Built with
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- react Typescript
+- tailwindCSS
+- framer-motion
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Note: These are just examples. Delete this note and replace the list above with your own choices**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### What I learned
 
-## Learn More
+first typescript project so I learned alot!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```tsx
+        <div className="justify-self-center flex flex-col items-center ">
+            <motion.div 
+                ref={scope}
+                
+                className=" grid place-items-center w-[70px] h-[65px] md:w-[148px] md:h-[140px] rounded-xl overflow-hidden relative md:shadow-[0_10px_0px_0px_rgba(0,0,0,0.2)]">
+                <motion.div className="top-box  w-[70px] h-[32.5px] md:w-[148px] md:h-[70px] absolute bg-blue-1100 top-0 border-b-black border-b-[1px]  z-30 ">
+                    
+                </motion.div>
+                <div className="top-box w-[70px] h-[32.5px] md:w-[148px] md:h-[70px] absolute  top-0 bg-blue-1300 opacity-30 z-50">
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+                    </div>
+                <div className="bottom-box w-[70px] h-[32.5px] md:w-[148px] md:h-[70px] absolute bottom-0 border-b-black border-b-[1px] bg-blue-1100 z-10"></div>
+                <p className="text-[30px] md:text-[80px] tracking-[-1px] text-red-1000 z-30 relative">
+                    {timeBetween}
+                </p>
+                
+            </motion.div>
+            <div className="mt-4 md:mt-7">
+                <p className="text-[8px] md:text-[14px] tracking-[2px] md:tracking-[6px] text-blue-1000">{children}</p>
+            </div>
+        </div>
+```
+im proud of this component i made, using children etc.
+```css
+.bottom-box{
+  --mask: radial-gradient(5px at 5px 0,#0000 98%,#000) -5px;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
+.top-box{
+  --mask: radial-gradient(5px at 5px 100%,#0000 98%,#000) -5px;
+  -webkit-mask: var(--mask);
+          mask: var(--mask);
+}
+```
+the middle circle parts of the calander box.
+
+```ts
+const datadate = JSON.parse(localStorage.getItem("theLaunchDate") || "{}") ;
+if (Object.keys(datadate).length!==0) {
+    const newDate = new Date(datadate);
+    currentDate = newDate;
+    console.log(currentDate);
+} else {
+    currentDate.setDate(currentDate.getDate() + 14);
+    localStorage.setItem("theLaunchDate", JSON.stringify(currentDate))
+}
+
+export default currentDate;
+
+```
+I learned that JSON.parse doesnt work too well with typescript, and since the components rerender everytime, i avoided putting this function inside a tsx file, and i wrote it inside a seperate file 
+
+### Continued development
+
+get better at typescript!
+
